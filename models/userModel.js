@@ -20,6 +20,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    followers: {
+        type: Number,
+        required: true,
+    },
     category: {
         type: String,
         required: true

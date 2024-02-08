@@ -31,6 +31,7 @@ export const register = async (req, res, next) => {
       address: req.body.address,
       phone: req.body.phone,
       socialMediaLink: req.body.socialMediaLink,
+      followers: req.body.followers,
       category: req.body.category,
       email: req.body.email,
       password: hashedPassword,

@@ -2,7 +2,7 @@ import User from '../models/userModel.js';
 
 export const getInfluencers = async (req, res) => {
   try {
-    const influencers = await User.find({ category: 'influencer', status: 'approved' }).select('name category address profile_photo');
+    const influencers = await User.find({ role: 'influencer', status: 'approved' });
 
     res.json({
       influencers,

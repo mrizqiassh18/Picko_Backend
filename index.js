@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import authRoute from './routes/authRoute.js'
 import adminRoute from './routes/adminRoute.js';
+import homeRoute from './routes/homeRoute.js';
 import influencerRoute from './routes/influencerRoute.js';
 import cors from 'cors';
 
@@ -31,6 +32,7 @@ db.once('open', () => {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(authRoute);
+    app.use(homeRoute);
     app.use('/api', influencerRoute)
     app.use('/api', adminRoute);
 

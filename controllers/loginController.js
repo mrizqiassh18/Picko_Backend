@@ -19,6 +19,12 @@ export const login = async (req, res, next) => {
       });
     }
 
+    if (user.status === 'disabled') {
+      return res.status(403).json({
+        message: 'Forbidden - User is disabled, please contact the administrator at mrizqiassh18@gmail.com',
+      });
+    }
+
     const passwordMatch = await bcrypt.compare(
       req.body.password,
       user.password
@@ -39,6 +45,8 @@ export const login = async (req, res, next) => {
       token: token,
       userId: user._id,
       role: user.role,
+      name: user.name,
+      status: user.status
     });
   } catch (err) {
     console.error(err);

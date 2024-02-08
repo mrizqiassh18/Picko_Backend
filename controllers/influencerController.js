@@ -86,6 +86,9 @@ export const updateInfluencerData = async (req, res) => {
       if (req.body.socialMediaLink) {
         influencer.socialMediaLink = req.body.socialMediaLink;
       }
+      if (req.body.followers) {
+        influencer.followers = req.body.followers;
+      }
       if (req.body.password) {
         influencer.password = req.body.password
       }
