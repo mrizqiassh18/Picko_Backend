@@ -37,7 +37,7 @@ db.once('open', () => {
     app.use('/api', influencerRoute)
     app.use('/api', adminRoute);
 
-    app.listen(5000, () => {
+    app.listen(config.PORT, () => {
         console.log('Server up and running on port 5000');
     });
 });
