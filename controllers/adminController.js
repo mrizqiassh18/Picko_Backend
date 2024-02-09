@@ -1,4 +1,5 @@
 import User from "../models/userModel.js";
+import { v2 as cloudinary } from 'cloudinary';
 
 export const getInfluencers = async (req, res, next) => {
   try {
@@ -81,3 +82,27 @@ export const getInfluencersCount = async (req, res) => {
     res.status(500).json({ message: "An error occurred" });
   }
 };
+
+export const deleteInfluencer = async (req, res) => {
+  try {
+    const influencerId = req.params.id;
+
+    // Ambil URL foto dari database
+    const influencer = await User.findById(influencerId);
+    const photoUrl = influencer.photoUrl;
+
+    // Hapus foto di Cloudinary
+    if (photoUrl) {
+      const publicId = photoUrl.split('/').pop().split('.')[0]; // Ambil public_id dari URL Cloudinary
+      await cloudinary.uploader.destroy(publicId);
+    }
+
+    // Hapus data di database
+    await influencer.deleteOne({influencerId});
+
+    res.status(200).json({ message: 'Influencer deleted successfully.' });
+  } catch (error) {
+    console.error('Error deleting influencer:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}

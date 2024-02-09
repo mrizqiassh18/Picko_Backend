@@ -2,6 +2,7 @@ import express from 'express';
 import { getInfluencers, approveInfluencer, disableInfluencer } from '../controllers/adminController.js';
 import { verifyToken, isAdmin } from '../middleware/authMiddleware.js';
 import { getInfluencersCount } from '../controllers/adminController.js';
+import { deleteInfluencer } from '../controllers/adminController.js';
 
 const router = express.Router();
 
@@ -15,5 +16,7 @@ router.put('/admin/approve-influencer/:id', verifyToken, isAdmin, approveInfluen
 router.put('/admin/disable-influencer/:id', verifyToken, isAdmin, disableInfluencer);
 
 router.get('/admin/influencers-count', verifyToken, isAdmin, getInfluencersCount);
+
+router.delete('/admin/delete-influencer/:id', verifyToken, isAdmin, deleteInfluencer);
 
 export default router;

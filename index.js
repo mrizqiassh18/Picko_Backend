@@ -16,7 +16,7 @@ mongoose.connect('mongodb+srv://mrizqiassh:Rizqirizqi123@rizqiproject.cyioj81.mo
 app.use(cors(
     {
         origin: 'http://localhost:5173',
-        methods: ['GET', 'POST', 'PUT'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true
     }
 ));
