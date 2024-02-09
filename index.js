@@ -4,6 +4,7 @@ import authRoute from './routes/authRoute.js'
 import adminRoute from './routes/adminRoute.js';
 import homeRoute from './routes/homeRoute.js';
 import influencerRoute from './routes/influencerRoute.js';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import cors from 'cors';
 import config from './config.js';
 
