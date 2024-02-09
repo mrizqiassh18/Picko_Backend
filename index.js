@@ -16,7 +16,7 @@ mongoose.connect(config.DATABASE_KEY, {
 
 app.use(cors(
     {
-        origin: 'https://picko-47g71twdf-mrizqiassh18.vercel.app/',
+        origin: 'https://picko-alpha.vercel.app/',
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true
     }
