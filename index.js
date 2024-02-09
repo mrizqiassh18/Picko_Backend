@@ -5,17 +5,18 @@ import adminRoute from './routes/adminRoute.js';
 import homeRoute from './routes/homeRoute.js';
 import influencerRoute from './routes/influencerRoute.js';
 import cors from 'cors';
+import config from './config.js';
 
 
 const app = express();
-mongoose.connect('mongodb+srv://mrizqiassh:Rizqirizqi123@rizqiproject.cyioj81.mongodb.net/Picko', {
+mongoose.connect(config.DATABASE_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
 app.use(cors(
     {
-        origin: 'http://localhost:5173',
+        origin: 'https://picko-47g71twdf-mrizqiassh18.vercel.app/',
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true
     }
